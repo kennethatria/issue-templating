@@ -1,0 +1,21 @@
+---
+name: deploy to Azure
+
+on:
+  issues: 
+    types: [opened]
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+        with:
+          path: release
+      - name: Basic call to issue inputs
+        run: | 
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+
+          echo " ${{ github.event.issue.body.env }}"
+

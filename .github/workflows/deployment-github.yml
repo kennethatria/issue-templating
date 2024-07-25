@@ -49,14 +49,14 @@ jobs:
 
           echo ""
       - name: github context
-          run:   echo "$GITHUB_CONTEXT"
-          env:
-            GITHUB_CONTEXT: ${{ toJson(github) }}
+        run:   echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
 
       - name: another github context
-          env:
-            TITLE: ${{ github.event.issue.title }}
-          run: echo "${{contains($TITLE,'Bug')}}"
+        env:
+          TITLE: ${{ github.event.issue.title }}
+        run: echo "${{contains($TITLE,'Bug')}}"
         
 
 

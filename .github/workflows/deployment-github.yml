@@ -56,7 +56,7 @@ jobs:
       - name: another github context
           env:
             TITLE: ${{ github.event.issue.title }}
-        run: echo "${{contains($TITLE,'Bug')}}"
+          run: echo "${{contains($TITLE,'Bug')}}"
         
 
 

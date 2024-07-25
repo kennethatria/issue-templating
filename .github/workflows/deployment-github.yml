@@ -58,7 +58,18 @@ jobs:
       - name: another github context
         env:
           TITLE: ${{ github.event.issue.title }}
-        run: echo "${{ contains(github.event.issue.title,'Bug') }}"
+        run: |
+          echo "${{ contains(github.event.issue.title,'Bug') }}" 
+          echo "## title below"
+          echo $TITLE
+
+      - name: another github context
+        env:
+          TITLE: ${{ github.event.issue.body }}
+        run: |
+          echo "${{ contains(github.event.issue.body,'ute') }}"
+          echo "## body below|"
+          echo  $TITLE
         
 
 

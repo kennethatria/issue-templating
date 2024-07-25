@@ -70,6 +70,8 @@ jobs:
           echo "${{ contains(github.event.issue.body,'ute') }}"
           echo "## body below|"
           echo  $TITLE
+          echo "## what your looking for is below"
+          echo ${{ contains($TITLE,'ute') }}
         
 
 

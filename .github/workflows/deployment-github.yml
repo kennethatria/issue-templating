@@ -47,6 +47,8 @@ jobs:
 
           echo "### end of body ### "
 
+          echo $TE
+
           echo ""
       - name: github context
         run:   echo "$GITHUB_CONTEXT"
@@ -56,7 +58,7 @@ jobs:
       - name: another github context
         env:
           TITLE: ${{ github.event.issue.title }}
-        run: echo "${{contains($TITLE,'Bug')}}"
+        run: echo "${{ contains(github.event.issue.title,'Bug') }}"
         
 
 

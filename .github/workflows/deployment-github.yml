@@ -65,7 +65,7 @@ jobs:
             //return env
             //echo deployenv=env >> "$GITHUB_OUTPUT"
 
-      - id: step2
+      - id: step1
         run: echo "test=world" >> "$GITHUB_OUTPUT"
 
   testing:

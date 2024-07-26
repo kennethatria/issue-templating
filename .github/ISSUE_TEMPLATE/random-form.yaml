@@ -21,8 +21,8 @@ body:
         - prod (prod)
         - ute (Default)
       default: 1
-      validations: 
-        required: true
+    validations: 
+      required: true
   - type: checkboxes
     id: infra
     attributes:

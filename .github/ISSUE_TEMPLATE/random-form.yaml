@@ -21,6 +21,8 @@ body:
         - prod (prod)
         - ute (Default)
       default: 1
+      validations: 
+        required: true
   - type: checkboxes
     id: infra
     attributes:
@@ -28,4 +30,3 @@ body:
       description: Set up infra using terraform
       options:
         - label: Set up infra
-          required: true

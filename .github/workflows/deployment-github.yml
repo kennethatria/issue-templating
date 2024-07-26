@@ -32,6 +32,12 @@ jobs:
           TE: ${{ github.event.issue.body }}
         run: |
           echo $TE	
+
+          import (
+            "fmt"
+            "regexp"
+          )
+          
           // Regular expression to match the version number
           versionRegex := regexp.MustCompile(`Version v(\d+\.\d+\.\d+)`)
           // Regular expression to match the environment variable

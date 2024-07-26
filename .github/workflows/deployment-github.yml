@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.set-deployment-env.outputs.result }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -62,7 +63,7 @@ jobs:
             const envMatch = text.match(envRegex);
             const env = envMatch ? envMatch[1] : "Environment not found";
             console.log(`deployenv=${env}`) //>> "$GITHUB_OUTPUT";
-            //return env
+            return env
             //echo deployenv=env >> "$GITHUB_OUTPUT"
 
       - id: step1
@@ -73,10 +74,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          OUTPUT1: ${{needs.build.outputs.output1}} ${{needs.job1.outputs.output1}}
-        run: echo "$OUTPUT1"
+          OUTPUT1: ${{needs.build.outputs.output1}} 
+          OUTPUT2: ${{needs.build.outputs.output2}}
+        run: echo "$OUTPUT1 -- $OUTPUT2" 
 
   calling:
+    needs: build
     uses: ./.github/workflows/callable-workflow.yml
     if: ${{ needs.build.outputs.output1 == 'world' }} 
     with:

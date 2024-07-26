@@ -65,7 +65,7 @@ jobs:
   calling:
     uses: ./.github/workflows/callable-workflow.yml
     with:
-      environment: ${{ steps.set-deployment-env.outputs.result }}
+      environment: "${{ steps.set-deployment-env.outputs.result }}"
 
 
 

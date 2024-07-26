@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: first one
       run: |
-        echo "inputs.environment : ${{ inputs.environment }}""
+        echo "inputs.environment : ${{ inputs.environment }}"
     - name: second one
       run: |
-        echo "vars.hello_world : ${{ vars.HELLO_WORLD }}""
+        echo "vars.hello_world : ${{ vars.HELLO_WORLD }}"

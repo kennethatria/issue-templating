@@ -32,7 +32,7 @@ jobs:
           echo body=$ISSUE_BODY >> "$GITHUB_OUTPUT"
       
       - name: Getting application version
-        run:  console.log("${{steps.issue_body.outputs.body}}")
+        run:  echo "${{steps.issue_body.outputs.body}}"
 
 
 

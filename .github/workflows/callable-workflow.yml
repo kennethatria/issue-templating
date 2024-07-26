@@ -3,16 +3,16 @@ name: Reusable workflow example
 on:
   workflow_call:
     inputs:
-      version:
+      environment:
         required: true
         type: string
 
 jobs:
   application-version:
-    environment: inputs.version
+    environment: inputs.environment
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo ${{ inputs.version }}
+        echo ${{ inputs.environment }}
     - run: |
-        echo ${{ vars.STORM_FE_APP_SERVICE_NAME }}
+        echo ${{ vars.environment }}

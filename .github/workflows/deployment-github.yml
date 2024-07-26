@@ -27,11 +27,10 @@ jobs:
       - name: Getting application version and environment
         uses: actions/github-script@v7
         id: set-result
-        env:
-          TE: ${{ github.event.issue.body }}
         with:
           script: |
-            console.log($TE)
+            issue_body = ${{ github.event.issue.body }}
+            console.log($issue_body)
 
 
 

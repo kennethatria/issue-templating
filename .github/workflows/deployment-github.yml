@@ -30,7 +30,7 @@ jobs:
           issue: ${{ github.event.issue.body }}
         run: |
           echo $issue
-          echo "issue=${{ issue }}" >> $GITHUB_ENV
+          echo "issue=$issue" >> $GITHUB_ENV
 
       - name: Use the value
         id: step_two

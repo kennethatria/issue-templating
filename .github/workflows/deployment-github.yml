@@ -25,11 +25,17 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Setting issue body
-        id: issue
+        id: step_one
         env:
           issue: ${{ github.event.issue.body }}
         run: |
           echo $issue
+          echo "issue=${{ issue }}" >> $GITHUB_ENV
+
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.issue }}" # This will output 'yellow'
 
 
 

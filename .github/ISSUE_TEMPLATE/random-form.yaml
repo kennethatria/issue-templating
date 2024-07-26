@@ -1,4 +1,4 @@
-name: deployment trails
+name: deployment UTE / Prod
 description: File a bug report.
 title: "[Bug]: "
 labels: ["bug", "triage"]
@@ -6,10 +6,14 @@ projects: ["octo-org/1", "octo-org/44"]
 assignees:
   - octocat
 body:
-  - type: markdown
+  - type: input
+    id: version
     attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
+      label: Version
+      description: Input the application version number to be deployed
+      placeholder: v1.12.34
+    validations:
+      required: false
   - type: dropdown
     id: env
     attributes:
@@ -18,23 +22,14 @@ body:
       options:
         - prod (prod)
         - ute (Default)
-      default: 0
+      default: 1
     validations:
       required: true
-  - type: dropdown
-    id: action
-    attributes:
-      label: What terraform actions are you running?
-      multiple: true
-      options:
-        - destroy
-        - plan
-        - apply (Default)
   - type: checkboxes
-    id: terms
+    id: infra
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      label: Infrat
+      description: Set up infra using terraform
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: Set up infra
           required: true

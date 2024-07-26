@@ -64,8 +64,9 @@ jobs:
 
   calling:
     uses: ./.github/workflows/callable-workflow.yml
+    if: ${{ steps.set-deployment-env.outputs.result == 'ute' }}
     with:
-      environment: "${{ steps.set-deployment-env.outputs.result }}"
+      environment: 'ute'
 
 
 

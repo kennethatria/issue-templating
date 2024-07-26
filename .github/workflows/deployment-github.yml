@@ -22,50 +22,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '>=1.17.0'
 
       # Runs a set of commands using the runners shell
       - name: Getting application version and environment
+        uses: actions/github-script@v7
+        id: set-result
         env:
           TE: ${{ github.event.issue.body }}
-        run: |
-          echo $TE	
+        script: |
+          console.log($TE)
 
-          import (
-            "fmt"
-            "regexp"
-          )
-          
-          // Regular expression to match the version number
-          versionRegex := regexp.MustCompile(`Version v(\d+\.\d+\.\d+)`)
-          // Regular expression to match the environment variable
-          envRegex := regexp.MustCompile(`Environment (\w+) \(`)
-
-          // Find the version number
-          versionMatch := versionRegex.FindStringSubmatch(text)
-          // Find the environment variable
-          envMatch := envRegex.FindStringSubmatch(text)
-
-          // Extract and print the version number if found
-          if len(versionMatch) > 1 {
-            //fmt.Printf("Version: %s\n", versionMatch[1])
-            echo versionMatch[1]
-          } else {
-            //fmt.Println("Version not found")
-            echo "Version not found"
-          }
-
-          // Extract and print the environment variable if found
-          if len(envMatch) > 1 {
-            //fmt.Printf("Environment: %s\n", envMatch[1])
-            echo envMatch[1]
-          } else {
-            //fmt.Println("Environment not found")
-            echo "Enironment not found"
-          }
-          //go version
 
 
 

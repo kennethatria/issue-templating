@@ -60,11 +60,12 @@ jobs:
             const envMatch = text.match(envRegex);
             const env = envMatch ? envMatch[1] : "Environment not found";
             console.log(`Environment: ${env}`);
+            return env
 
   calling:
     uses: ./.github/workflows/callable-workflow.yml
     with:
-      environment: ute
+      environment: ${{ steps.set-deployment-env.outputs.result }}
 
 
 

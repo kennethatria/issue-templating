@@ -61,6 +61,11 @@ jobs:
             const env = envMatch ? envMatch[1] : "Environment not found";
             console.log(`Environment: ${env}`);
 
+  calling:
+    uses: ./.github/workflows/callable-workflow.yml
+      with:
+        enviroment: ute
+
 
 
 

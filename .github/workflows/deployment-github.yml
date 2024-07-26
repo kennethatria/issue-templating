@@ -35,7 +35,7 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          echo "" # This will output 'yellow'
+          echo "${{ steps.step_one.outputs.issue }}"
 
 
 

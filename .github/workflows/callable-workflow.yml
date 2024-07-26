@@ -9,7 +9,7 @@ on:
 
 jobs:
   application-version:
-    environment: inputs.environment
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
     - name: first one

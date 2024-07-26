@@ -1,6 +1,6 @@
 name: deployment UTE / Prod
 description: File a bug report.
-title: "Deploy to UTE / PRODUCTION environment: "
+title: "Deploy to UTE / PRODUCTION environment "
 labels: ["build", "infra"]
 projects: ["storm"]
 body:

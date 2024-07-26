@@ -63,8 +63,8 @@ jobs:
 
   calling:
     uses: ./.github/workflows/callable-workflow.yml
-      with:
-        enviroment: ute
+    with:
+      enviroment: ute
 
 
 

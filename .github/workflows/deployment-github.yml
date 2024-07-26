@@ -27,7 +27,7 @@ jobs:
       - name: Setting issue body
         id: issue_body
         env:
-          ISSUE_BODY: ${{ github.even.issue.body }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           echo body=$ISSUE_BODY >> "$GITHUB_OUTPUT"
       

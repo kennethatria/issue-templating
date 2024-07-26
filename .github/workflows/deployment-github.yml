@@ -28,7 +28,7 @@ jobs:
         env:
           TE: ${{ github.even.issue.body }}
         run: |
-          echo "$TE"
+          echo $TE
 
 
 

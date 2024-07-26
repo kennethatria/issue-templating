@@ -17,7 +17,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    output1: ${{ steps.set-deployment-env.outputs.deployenv }}
+    output1: ${{ steps.set-deployment-env.outputs.result }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -61,7 +61,8 @@ jobs:
             const envMatch = text.match(envRegex);
             const env = envMatch ? envMatch[1] : "Environment not found";
             //console.log(`deployenv=${env}`) >> "$GITHUB_OUTPUT";
-            echo deployenv=env >> "$GITHUB_OUTPUT"
+            return env
+            //echo deployenv=env >> "$GITHUB_OUTPUT"
 
   calling:
     uses: ./.github/workflows/callable-workflow.yml

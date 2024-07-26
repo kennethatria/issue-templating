@@ -38,6 +38,7 @@ jobs:
           echo "${{ steps.step_one.outputs.issue }}"
 
       - uses: actions/github-script@v7
+        needs: step_two
         name: getting application version number
         id: set-result
         with:
@@ -51,6 +52,7 @@ jobs:
 
       - uses: actions/github-script@v7
         name: getting deployment environment
+        needs: set-result
         id: set-deployment-env
         with:
           result-encoding: string

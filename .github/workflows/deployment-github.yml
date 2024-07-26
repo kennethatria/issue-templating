@@ -29,8 +29,9 @@ jobs:
         id: set-result
         env:
           TE: ${{ github.event.issue.body }}
-        script: |
-          console.log($TE)
+        with 
+          script: |
+            console.log($TE)
 
 
 

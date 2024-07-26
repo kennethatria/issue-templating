@@ -68,6 +68,13 @@ jobs:
       - id: step2
         run: echo "test=world" >> "$GITHUB_OUTPUT"
 
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          OUTPUT1: ${{needs.build.outputs.output1}}
+        run: echo "$OUTPUT1"
+
   calling:
     uses: ./.github/workflows/callable-workflow.yml
     if: ${{ needs.build.outputs.output1 == 'world' }} 

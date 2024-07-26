@@ -25,14 +25,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Setting issue body
-        id: issue_body
+        id: issue
         env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
+          issue: ${{ github.event.issue.body }}
         run: |
-          echo body=$ISSUE_BODY >> "$GITHUB_OUTPUT"
-      
-      - name: Getting application version
-        run:  echo "${{ steps.issue_body.output.body }}"
+          echo $issue
 
 
 

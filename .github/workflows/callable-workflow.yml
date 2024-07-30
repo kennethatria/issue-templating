@@ -26,6 +26,8 @@ jobs:
     - name: download release version
       env: 
         GH_TOKEN: $${{ secrets.GITHUB_TOKEN }}
-      run: gh release download v${{ inputs.version }}
+        ISSUE: ${{ github.event.issue.html_url }}
+      #run: gh release download v${{ inputs.version }}
+      run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
     - name: check if file is downloaded
       run : ls

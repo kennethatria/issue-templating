@@ -27,7 +27,7 @@ jobs:
 
     - name: download release version
       env: 
-        GH_TOKEN: ${{ secrets.EEHH }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         ISSUE: ${{ github.event.issue.html_url }}
       run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
 

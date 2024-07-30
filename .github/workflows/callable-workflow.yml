@@ -15,6 +15,7 @@ jobs:
     environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - name: first one
       run: |
         echo "inputs.environment : ${{ inputs.environment }}"
@@ -29,7 +30,7 @@ jobs:
       env: 
         GH_TOKEN: ${{ secrets.EEHH }}
         ISSUE: ${{ github.event.issue.html_url }}
-      #run: gh release download v${{ inputs.version }}
-      
+      run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+
     - name: check if file is downloaded
       run : ls

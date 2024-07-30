@@ -26,7 +26,6 @@ jobs:
       run : echo v${{ inputs.version }}
 
     - name: download release version
-      run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
       env: 
         GH_TOKEN: ${{ secrets.EEHH }}
         ISSUE: ${{ github.event.issue.html_url }}

@@ -23,12 +23,9 @@ jobs:
         echo "vars.hello_world : ${{ vars.HELLO_WORLD }}"
     - name: version
       run : echo v${{ inputs.version }}
-    - name: github auth status
-      env:
-        GH_TOKEN: ${{ secrets.REPO_TOKEN }}
-      run: gh auth status
     - name: download release version
       env: 
+        GH_TOKEN: ${{ secrets.REPO_TOKEN }}
         ISSUE: ${{ github.event.issue.html_url }}
       #run: gh release download v${{ inputs.version }}
       run: gh issue comment $ISSUE --body "Thank you for opening this issue!"

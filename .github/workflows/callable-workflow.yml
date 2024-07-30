@@ -24,6 +24,8 @@ jobs:
     - name: version
       run : echo v${{ inputs.version }}
     - name: github auth status
+      env:
+        GH_TOKEN: ${{ secrets.REPO_TOKEN }}
       run: gh auth status
     - name: download release version
       env: 

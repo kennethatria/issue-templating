@@ -26,7 +26,7 @@ jobs:
       run : echo v${{ inputs.version }}
 
     - name: get latest release
-      run: gh release list --jq '.[] | select(.isLatest)' --json isLatest,tagName
+      run: gh release list --jq '.[] | select(.isLatest) | .tagName' --json isLatest,tagName
       env: 
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

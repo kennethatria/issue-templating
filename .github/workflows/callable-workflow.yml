@@ -24,14 +24,11 @@ jobs:
     - name: version
       run : echo v${{ inputs.version }}
     - name: github login
-      env:
-        GH_TOKEN: $${{ secrets.REPO_TOKEN }}
       run: gh auth login
     - name: github auth status
       run: gh auth status
     - name: download release version
       env: 
-        GH_TOKEN: $${{ secrets.REPO_TOKEN }}
         ISSUE: ${{ github.event.issue.html_url }}
       #run: gh release download v${{ inputs.version }}
       run: gh issue comment $ISSUE --body "Thank you for opening this issue!"

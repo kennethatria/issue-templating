@@ -86,7 +86,7 @@ jobs:
     if: ${{ needs.build.outputs.output2 == 'ute' }} 
     with:
       environment: 'ute'
-      version: 
+      version: ${{ needs.build.outputs.output3 }} 
 
 
 

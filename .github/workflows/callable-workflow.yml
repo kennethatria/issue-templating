@@ -21,3 +21,5 @@ jobs:
     - name: second one
       run: |
         echo "vars.hello_world : ${{ vars.HELLO_WORLD }}"
+    - name: version
+      run : echo ${{ inputs.version }}

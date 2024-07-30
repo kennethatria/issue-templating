@@ -23,8 +23,6 @@ jobs:
         echo "vars.hello_world : ${{ vars.HELLO_WORLD }}"
     - name: version
       run : echo v${{ inputs.version }}
-    - name: github login
-      run: gh auth login
     - name: github auth status
       run: gh auth status
     - name: download release version

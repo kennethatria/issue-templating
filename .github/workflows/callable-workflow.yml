@@ -22,10 +22,10 @@ jobs:
       run: |
         echo "vars.hello_world : ${{ vars.HELLO_WORLD }}"
     - name: version
-      run : echo ${{ inputs.version }}
+      run : echo v${{ inputs.version }}
     - name: download release version
       env: 
         GH_TOKEN: $${{ secrets.GITHUB_TOKEN }}
-      run: gh release download ${{ inputs.version }}
+      run: gh release download v${{ inputs.version }}
     - name: check if file is downloaded
       run : ls

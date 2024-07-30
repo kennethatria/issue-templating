@@ -24,8 +24,9 @@ jobs:
     - name: version
       run : echo v${{ inputs.version }}
     - name: download release version
+      run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
       env: 
-        GH_TOKEN: ${{ secrets.something }}
+        GH_TOKEN: ${{ secrets.SOMETHING }}
         ISSUE: ${{ github.event.issue.html_url }}
       #run: gh release download v${{ inputs.version }}
       run: gh issue comment $ISSUE --body "Thank you for opening this issue!"

@@ -1,32 +1,28 @@
-name: deployment UTE / Prod
-description: File a bug report.
-title: "Deploy to UTE / PRODUCTION environment "
-labels: ["build", "infra"]
+name: Azure deployments
+description: Deploy Storm application to Azure environments.
+title: " Storm Deployment "
+labels: ["build", "deployments"]
 projects: ["storm"]
+assignees:
+  - octocat
 body:
   - type: input
     id: version
     attributes:
       label: Version
-      description: Input the application version number to be deployed
-      placeholder: v1.12.34
+      description: Input the application version number to be deployed as displayed in placeholder
+      placeholder: v1.2.3
     validations:
-      required: false
+      required: true
   - type: dropdown
     id: env
     attributes:
       label: Environment
       description: What environment would you like to deploy to?
       options:
-        - prod (prod)
-        - ute (Default)
+        - ite
+        - acp
+        - prod
       default: 1
-    validations: 
+    validations:
       required: true
-  - type: checkboxes
-    id: infra
-    attributes:
-      label: Infrat
-      description: Set up infra using terraform
-      options:
-        - label: Set up infra

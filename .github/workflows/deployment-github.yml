@@ -33,7 +33,6 @@ jobs:
         env:
           issue: ${{ github.event.issue.body }}
         run: |
-          echo $issue
           echo issue=$issue >> "$GITHUB_OUTPUT"
 
       - name: Use the value

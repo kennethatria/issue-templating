@@ -28,8 +28,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - id: issuetext
+        env: 
+          ISSUE="${{ github.event.issue.body }}"
         run : |
-            echo text="${{ github.event.issue.body }}" >> $GITHUB_OUTPUT
+            echo $ISSUE
+            echo text="$ISSUE" >> $GITHUB_OUTPUT
       - uses: actions/github-script@v7
         name: Getting application version number
         id: storm-version

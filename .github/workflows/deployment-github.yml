@@ -32,12 +32,10 @@ jobs:
       - uses: actions/github-script@v7
         name: getting application version number
         id: set-result
-        env:
-          issue: ${{ github.event.issue.body }}
         with:
           result-encoding: string
           script: |
-            const text = $issue
+            const text =  ${{ github.event.issue.body }}
             const versionRegex = /Version v(\d+\.\d+\.\d+)/;
             const versionMatch = text.match(versionRegex);
             const version = versionMatch ? versionMatch[1] : "Version not found";
@@ -47,12 +45,10 @@ jobs:
       - uses: actions/github-script@v7
         name: getting deployment environment
         id: set-deployment-env
-        env:
-          issue: ${{ github.event.issue.body }}
         with:
           result-encoding: string
           script: |
-            const text = $issue
+            const text = ${{ github.event.issue.body }}
             const envRegex = /Environment (\w+) \(/;
             const envMatch = text.match(envRegex);
             const env = envMatch ? envMatch[1] : "Environment not found";

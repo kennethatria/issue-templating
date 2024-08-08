@@ -29,14 +29,12 @@ jobs:
       # Runs a set of commands using the runners shell
 
       - name: Extract Version from Issue Body
-        env:
-          ISSUE_BODY=${{ github.event.issue.body }}
         id: extract_version
         run: |
           # Extract the version using grep and awk
-          VERSION=$(echo "$ISSUE_BODY" | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
+          VERSION=$(echo "${{ github.event.issue.body }}" | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
 
-          ENVIRONMENT=$(echo "$ISSUECONTENTS" | awk '/### Environment/ {getline; print}' | awk '{$1=$1};1')
+          ENVIRONMENT=$(echo ""${{ github.event.issue.body }}" | awk '/### Environment/ {getline; print}' | awk '{$1=$1};1')
           
           # Output the extracted version
           echo "version=$VERSION" >> $GITHUB_OUTPUT

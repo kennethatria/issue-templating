@@ -46,7 +46,7 @@ jobs:
         shell: bash
 
       - name: Print Extracted Version
-        run: echo "Extracted Version: ${{ env.VERSION }}"
+        run: echo "Extracted Version ${{ env.VERSION }}"
 
   calling:
     needs: build

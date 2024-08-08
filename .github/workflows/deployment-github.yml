@@ -40,7 +40,11 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          echo "${{ steps.step_one.outputs.issue }}"
+          echo "step output : ${{ steps.step_one.outputs.issue }}"
+          echo "*** start ***"
+          echo "env output : ${{ env.ISSUECONTENTS }}"
+          echo "*** end ***"
+          echo "issue= ${{ env.ISSUECONTENTS }}"
 
       - uses: actions/github-script@v7
         name: getting application version number

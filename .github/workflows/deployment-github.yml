@@ -39,7 +39,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const text = "${{ github.event.issue.body }}"
+            const text = "${{ steps.issuetext.outputs.body }}"
             const versionRegex = /Version v(\d+\.\d+\.\d+)/;
             const versionMatch = text.match(versionRegex);
             const version = versionMatch ? versionMatch[1] : "Version not found";
@@ -52,7 +52,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const text = "${{ github.event.issue.body }}"
+            const text = "${{ steps.issuetext.outputs.body }}"
             const envRegex = /### Environment\s+(\w+)/;
             const envMatch = text.match(envRegex);
             const env = envMatch ? envMatch[1] : "Environment not found";

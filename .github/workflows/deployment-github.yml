@@ -33,19 +33,19 @@ jobs:
         run : |
             echo body=$ISSUE >> $GITHUB_OUTPUT
             
-      - uses: actions/github-script@v7
-        name: Getting application version number
-        id: storm-version
-        with:
-          result-encoding: string
-          script: |
-            const text = String(${{ steps.issuetext.outputs.body }})
-            const versionRegex = /### Version\s+v(\d+\.\d+\.\d+)/;
-            const versionMatch = text.match(versionRegex);
-            const version = versionMatch ? versionMatch[1] : "Version not found";
-            console.log(typeof version)
-            console.log(version);
-            return version
+      #- uses: actions/github-script@v7
+      #  name: Getting application version number
+      #  id: storm-version
+      #  with:
+      #    result-encoding: string
+      #    script: |
+      #      const text = String(${{ steps.issuetext.outputs.body }})
+      #      const versionRegex = /### Version\s+v(\d+\.\d+\.\d+)/;
+      #      const versionMatch = text.match(versionRegex);
+      #      const version = versionMatch ? versionMatch[1] : "Version not found";
+      #      console.log(typeof version)
+      #      console.log(version);
+      #      return version
 
       - uses: actions/github-script@v7
         name: Getting deployment environment

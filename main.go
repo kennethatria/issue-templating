@@ -42,7 +42,7 @@ func main() {
 func extractVersionAndEnvironment(input string) (string, string) {
 	// Define regex patterns for version and environment
 	versionPattern := regexp.MustCompile(`(?m)### Version\s*\s*(v[\d.]+)`)
-	environmentPattern := regexp.MustCompile(`(?m)### Environment\s*\s*(\w+)`) //(`(?m)### Environment\s*\n\s*(\w+)`)
+	environmentPattern := regexp.MustCompile(`(?m)### Environment\s*\n\s*(\w+)`) //(`(?m)### Environment\s*\n\s*(\w+)`)
 
 	// Extract the version using the regex pattern
 	versionMatch := versionPattern.FindStringSubmatch(input)

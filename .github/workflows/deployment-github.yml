@@ -40,7 +40,7 @@ jobs:
           result-encoding: string
           script: |
             const text = "${{ steps.issuetext.outputs.body }}"
-            const versionRegex = /Version v(\d+\.\d+\.\d+)/;
+            const versionRegex = /### Version\s+v(\d+\.\d+\.\d+)/;
             const versionMatch = text.match(versionRegex);
             const version = versionMatch ? versionMatch[1] : "Version not found";
             console.log(version);

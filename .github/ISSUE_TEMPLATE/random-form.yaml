@@ -1,7 +1,7 @@
 name: Azure deployments
 description: Deploy Storm application to Azure environments.
-title: " Storm Deployment "
-labels: ["build", "deployments"]
+title: "Deploying storm to Azure environments "
+labels: ["deploy"]
 projects: ["storm"]
 assignees:
   - octocat

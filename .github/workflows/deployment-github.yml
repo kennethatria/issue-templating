@@ -54,12 +54,16 @@ jobs:
           result-encoding: string
           script: |
             const text = "${{ steps.issuetext.outputs.body }}"
-            const envRegex = /### Environment\s+(\w+)/;
-            const envMatch = text.match(envRegex);
-            const env = envMatch ? envMatch[1] : "Environment not found";
-            console.log(typeof env)
-            console.log(env)
-            return env
+            console.log(text)
+            console.log(typeof text)
+            const pattern = /\b(ite|acp|prod)\b/g;
+            const matches = text.match(pattern);
+
+            if (matches) {
+                console.log("Matched words:", matches);
+            } else {
+                console.log("No matches found.");
+            }
 
   #verify_output:
   #  needs: [build]

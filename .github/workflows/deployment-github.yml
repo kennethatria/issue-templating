@@ -32,6 +32,12 @@ jobs:
           ISSUE: ${{ github.event.issue.body }}
         run : |
             echo body=$ISSUE >> $GITHUB_OUTPUT
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '^1.13.1' 
+      - run: go run main.go "hello world"
+
             
       #- uses: actions/github-script@v7
       #  name: Getting application version number
@@ -46,24 +52,6 @@ jobs:
       #      console.log(typeof version)
       #      console.log(version);
       #      return version
-
-      - uses: actions/github-script@v7
-        name: Getting deployment environment
-        id: deployment-environment
-        with:
-          result-encoding: string
-          script: |
-            const text = "${{ steps.issuetext.outputs.body }}"
-            console.log(text)
-            console.log(typeof text)
-            const pattern = /\b(ite|acp|prod)\b/g;
-            const matches = text.match(pattern);
-
-            if (matches) {
-                console.log("Matched words:", matches);
-            } else {
-                console.log("No matches found.");
-            }
 
   #verify_output:
   #  needs: [build]

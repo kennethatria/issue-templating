@@ -32,6 +32,7 @@ func main() {
 	//ite`
 
 	// Extract version and environment
+	fmt.Println(argument)
 	version, environment := extractVersionAndEnvironment(argument)
 
 	// Print the results

@@ -37,7 +37,7 @@ jobs:
         with:
           go-version: '^1.13.1' 
       - run: |
-          go run main.go "### Version  v4.15.6  ### Environment ite"
+          go run main.go "${{ steps.issuetext.outputs.body }}"
 
             
       #- uses: actions/github-script@v7

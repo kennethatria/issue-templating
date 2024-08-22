@@ -26,7 +26,7 @@ jobs:
       - id: extract_version
         env:
           ISSUE: ${{ github.event.issue.body }}
-        run: echo "version=$(echo "$ISSUE" | go run cmd/main.go -version)" >> "$GITHUB_OUTPUT"
+        run: echo "environment=$(echo "$ISSUE" | go run cmd/main.go -version)" >> "$GITHUB_OUTPUT"
         working-directory: extract
   close-issue:
     needs: [build]

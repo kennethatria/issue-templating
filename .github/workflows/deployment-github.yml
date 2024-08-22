@@ -30,7 +30,9 @@ jobs:
         working-directory: extract
       - env:
           ISSUE: ${{ github.event.issue.body }}
-        run: go run cmd/main.go $ISSUE
+        run: |
+          echo $ISSUE > issue_body.txt
+          go run cmd/main.go issue_body.txt
         working-directory: extract
   close-issue:
     needs: [build]

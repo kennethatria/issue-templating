@@ -23,7 +23,7 @@ jobs:
       - run: gotestdox
       - env:
           ISSUE: ${{ github.event.issue.body }}
-        run: | echo $ISSUE | go run cmd/main.go
+        run: echo $ISSUE | go run cmd/main.go
 
 
 

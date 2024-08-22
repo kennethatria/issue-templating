@@ -28,6 +28,10 @@ jobs:
           ISSUE: ${{ github.event.issue.body }}
         run: echo "environment=$(echo "$ISSUE" | go run cmd/main.go -version)" >> "$GITHUB_OUTPUT"
         working-directory: extract
+      - env:
+          ISSUE: ${{ github.event.issue.body }}
+        run: go run cmd/main.go $ISSUE
+        working-directory: extract
   close-issue:
     needs: [build]
     runs-on: ubuntu-latest

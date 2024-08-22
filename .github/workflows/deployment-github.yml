@@ -27,8 +27,8 @@ jobs:
           ISSUE: ${{ github.event.issue.body }}
         run: cd extract && echo $ISSUE | go run cmd/main.go -version
   close-issue:
-    needs: [deploy, issue-processing]
-    runs-on: [self-hosted, linux]
+    needs: [build]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: gh issue close ${{ github.event.issue.number }} -c "Request complete"

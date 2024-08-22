@@ -23,7 +23,7 @@ jobs:
       - run: cd extract && go test
       - env:
           ISSUE: ${{ github.event.issue.body }}
-        run: echo $ISSUE | go run cmd/main.go
+        run: cd extract && echo $ISSUE | go run cmd/main.go
 
 
 

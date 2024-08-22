@@ -26,6 +26,14 @@ jobs:
       - env:
           ISSUE: ${{ github.event.issue.body }}
         run: cd extract && echo $ISSUE | go run cmd/main.go -version
+  close-issue:
+    needs: [deploy, issue-processing]
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh issue close ${{ github.event.issue.number }} -c "Request complete"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
 

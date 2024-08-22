@@ -22,7 +22,7 @@ jobs:
       - run: cd extract && go mod download
       - run: cd extract && go test
       - run: go install github.com/bitfield/gotestdox/cmd/gotestdox@latest
-      - run: gotestdox
+      - run: cd extract && gotestdox
       - env:
           ISSUE: ${{ github.event.issue.body }}
         run: cd extract && echo $ISSUE | go run cmd/main.go

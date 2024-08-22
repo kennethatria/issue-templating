@@ -24,6 +24,9 @@ jobs:
       - env:
           ISSUE: ${{ github.event.issue.body }}
         run: cd extract && echo $ISSUE | go run cmd/main.go
+      - env:
+          ISSUE: ${{ github.event.issue.body }}
+        run: cd extract && echo $ISSUE | go run cmd/main.go -version
 
 
 

@@ -1,0 +1,14 @@
+stdin gh_response.txt
+exec extract
+stdout '^cae\n$'
+
+-- gh_response.txt --
+ ### Version
+  
+  v4.15.6
+  
+  ### Environment
+  
+  cae
+
+
